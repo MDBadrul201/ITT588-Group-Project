@@ -1,0 +1,254 @@
+<<!-- Video link: https://youtu.be/CEJVam-ukJc --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>BMI CALCULTOR</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+/* Style the body */
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	text-align: center;
+	background-image: url('sukan.png');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+  
+}
+/* Header/logo Title */
+.header {
+  padding: 25px;
+  background: #1E3F66;
+  color: white;
+}
+
+/* Increase the font size of the heading */
+.header h1 {
+  font-size: 40px;
+}
+
+
+
+/* Right-aligned link */
+.navbar a.right {
+  float: right;
+}
+
+
+.text{
+			text-align: left;
+			margin-left: 150px;
+		}
+/* Main column */
+.main {   
+  -ms-flex: 70%; /* IE10 */
+  flex: 70%;
+  padding: 20px;
+}
+
+.box{
+	width: 500px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			background-color: #fff;
+			transform: translate(-50%, -50%);
+			padding: 15px;
+			border-radius: 5px;
+			
+}
+#info{
+				font-size: 12px;
+				font-family: inherit;
+			}
+#result{
+				color: #341f97;
+			}
+			#risk{
+				color: #341f97;
+			}
+			#cate{
+				color: #341f97;
+			}
+#w, #h{
+			color: #222f3e;
+			text-align: center;
+			font-size: 20px;
+			font-weight: 200;
+			outline: none;
+			border: none;
+			background: none;
+			border-bottom: 1px solid #341f97;
+			width: 200px;
+		}
+			#w:focus, #h:focus{
+				border-bottom: 2px solid #341f97;
+				width: 300px;
+				transition: 0.5s;
+			}
+div.gallery 
+		{
+			margin: 5px;
+			border: 1px solid #ccc;
+			float: left;
+			width:300px;
+		}
+
+		div.gallery:hover 
+		{
+			border: 1px solid #777;
+		}
+
+		div.gallery img 
+		{
+			width: 100%;
+			height: auto;
+		}
+
+		div.desc 
+		{
+			padding: 15px;
+			text-align: center;
+		}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+}
+
+
+
+
+</style>
+<script type="text/javascript">
+		let cat;
+        let range;
+        let hrisk;
+		function validateForm() 
+		{
+			var h = document.getElementById('h').value;
+			var w = document.getElementById('w').value;
+			if (isNaN(w) || isNaN(h)) 
+			{
+				alert("Inputs must be numbers");
+				return false;
+			}
+			else if (h == "" && w == "") 
+			{
+				alert("Height and Weight must be filled out");
+				return false;
+			}
+			else if (h == "") 
+			{
+				alert("Height must be filled out");
+				return false;
+			}
+			else if (w == "") 
+			{
+				alert("Weight must be filled out");
+				return false;
+			}
+			else
+			{
+				var bmi=w/(h*h);
+				if (bmi < 18.4)
+				{
+					cat ="Underweight";
+					hrisk ="Malnutrition risk";
+				}
+				else if (bmi < 24.9)
+				{
+					cat ="Normal Weight";
+					hrisk ="Low Risk";
+				}
+				else if(bmi<30.0)
+				{
+					cat = "Overweight";
+					hrisk = "Enhanced risk";
+				}
+				else if(bmi<35.0)
+				{
+					cat = "Moderately obese";
+					hrisk = "Medium risk";
+				}
+				else if(bmi<40.0)
+				{
+					cat = "Severely obese";
+					hrisk = "High risk";
+				}
+				else 
+				{
+					cat = "Very severely obese";
+					hrisk = "Very high risk";
+				}
+				var bmio=(bmi.toFixed(2));
+			
+				document.getElementById("cate").innerHTML="Your BMI category is " + cat;
+				document.getElementById("result").innerHTML="Your BMI is " + bmio;
+				document.getElementById("risk").innerHTML="Health risk: " + hrisk;
+			
+
+			}
+		}
+		function clearFields()
+		{
+			document.getElementById("w").value = "";
+			document.getElementById("h").value = "";
+			document.getElementById("cate").innerHTML="";
+			document.getElementById("result").innerHTML="";
+			document.getElementById("risk").innerHTML="";
+			alert("All fields has been cleared");
+		}
+
+	</script>
+</head>
+<body>
+	<a href="Member List.html">
+		<img align ="left" src="BSHA4.png">
+	</a>
+	<div class="header">
+		<h1>BMI Calculator</h1>
+		
+	
+	</div>
+
+		
+	<div class="box">
+		<h2>Calculate your BMI:</h2>
+		<h2>BMI Calculator</h2>
+		<p id="info">Please enter height [m] and weight [kg]</p>
+		<p class="text">Height</p>
+		<input type="text" id="h">
+		<p class="text">Weight</p>
+		<input type="text" id="w">
+		<p id="cate"></p>
+		<p id="result"></p>
+		<p id="risk"></p>
+		<button id="btn" onClick="validateForm()">Calculate</button>
+		<button onclick="clearFields();">Clear</button>
+	</div>
+
+
+
+	
+<br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+<br>
+<br><br><br><br><br><br><br><br><br><br>
+<div class="footer">
+	<p>This website was created by 4 individuals</p>
+	<p>Sitie Noor Amirra Balqqis Binti Ahmad Tajmunizam</p>
+	<p>Nur Aisyah Binti Mohd Asri</p>
+	<p>Hilman Hakimi Bin Nor Affandi</p>	
+	<p>Mohd Badrul Amin Bin Safary</p>
+	<p>Copyright BSHA Developer 2022</p>
+	<p>Any feedback? Email to us <a href="mailto:hilmanhakimi0681@gmail.com">here</a></p>
+</div>
+
+</body>
+</html>
